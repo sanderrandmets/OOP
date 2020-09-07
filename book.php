@@ -2,12 +2,23 @@
 
 require_once 'models/Book.php';
 
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$books = Book::findAll();
 
-$book = Book::findById($id);
-
-var_dump($book);
 
 ?>
 
-<h1><?php echo $book->title; ?></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <?php foreach($books as $object) {?>
+        <li><a href="book.php?id=<?php echo $object->id; ?>"><?php echo $object->title; ?></a></li>
+      <?php } ?>
+    </ul>
+</body>
+</html>

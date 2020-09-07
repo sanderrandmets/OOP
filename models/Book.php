@@ -16,6 +16,31 @@ class Book {
 
     }
 
+    public static function findAll() {
+
+        global $pdo;
+
+        $stmt = $pdo->prepare('SELECT * FROM books');
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+    }
+
+    public static function findAllandSort() {
+
+        global $pdo;
+
+        $stmt = $pdo->prepare('SELECT * FROM books ORDER BY title');
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+
+    }
+
 }
 
 
