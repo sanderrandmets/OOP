@@ -1,10 +1,10 @@
 <?php
 
-require_once 'models/Book.php';
-
+require_once
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-$book = Book::findAll();
+$oBook = Book::findByid($id);
+
 ?>
 
 <!DOCTYPE html>
@@ -15,16 +15,9 @@ $book = Book::findAll();
     <title>Document</title>
 </head>
 <body>
-    <ul>
-    <?php
+    <h1><?php echo $oBook->title ?></h1>
+    <form action="edit.php" method="post">
+    <input type="text"></form>
 
-foreach($book as $object) {?>
-
-
-    <li><a href="book.php?id=<?php echo $object->id; ?>"><?php echo $object->title . " ". "(" . $object->release_date . ")"; ?></a></li>
-
-<?php } ?>
-
-    </ul>
 </body>
 </html>

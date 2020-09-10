@@ -1,6 +1,6 @@
 <?php
 
-require_once 'database.php';
+
 
 class Book {
 
@@ -42,6 +42,3 @@ class Book {
     }
 
 }
-
-
-
