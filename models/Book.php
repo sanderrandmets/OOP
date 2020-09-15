@@ -50,4 +50,20 @@ class Book {
 
     }
 
+    public function update() {
+
+        global $pdo;
+
+        $stmt = $pdo->prepare('UPDATE FROM book WHERE id=:id');
+        return $stmt->execute(['id' => $this->id]);
+
+    }
+
+    public function insert() {
+
+        global $pdo;
+
+        $stmt = $stmt = $pdo->prepare('INSERT FROM book WHERE id=:id');
+        return $stmt->execute(['id' => $this->id]);
+    }
 }

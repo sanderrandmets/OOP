@@ -1,11 +1,10 @@
 <?php
 
-require_once
+require_once 'autoload.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-
 $oBook = Book::findByid($id);
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

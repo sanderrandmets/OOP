@@ -16,9 +16,8 @@ $book = Book::findbyId($id);
 <body>
 
 <h1><?php echo $book->title; ?></h1><br>
-<a href="edit.php">muuda</a>
+<a href="editform.php">muuda</a>
 <a href="delete.php?id=<?php echo $book->id; ?>">kustuta</a>
-    
+
 </body>
 </html>
-
